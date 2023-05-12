@@ -1,4 +1,7 @@
 // Document elements
+const inputSongEl = document.getElementById("input-song");
+const inputArtistEl = document.getElementById("input-artist");
+const submitEl = document.getElementById("submit");
 const songEl = document.getElementById("song"); 
 const artistEl = document.getElementById("artist"); 
 const coverArtEl = document.getElementById("cover-art");
@@ -15,14 +18,20 @@ const genSearch = "search?q=";
 const corsProxyURL = "https://api.codetabs.com/v1/proxy?quest=";    // This is to get around CORS policy error
 
 // User input
-var song = "helter skelter"
-var artist = "the beatles";
+var song = "take on me"
+var artist = "a ha";
 
 // Misc.
 var lyricsURL;
 var lyrics;
 
-SearchGenius();
+
+submitEl.addEventListener("click", function(event) {
+    event.preventDefault()
+    song = inputSongEl.value;
+    artist = inputArtistEl.value;
+    SearchGenius();
+  });
 
 // Get data from Genius API
 function SearchGenius() {
