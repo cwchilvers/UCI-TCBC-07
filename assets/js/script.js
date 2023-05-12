@@ -15,29 +15,14 @@ const genSearch = "search?q=";
 const corsProxyURL = "https://api.codetabs.com/v1/proxy?quest=";    // This is to get around CORS policy error
 
 // User input
-var song = "all star"
-var artist = "smash mouth";
+var song = "helter skelter"
+var artist = "the beatles";
 
 // Misc.
 var lyricsURL;
 var lyrics;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 SearchGenius();
-
-
 
 // Get data from Genius API
 function SearchGenius() {
@@ -60,8 +45,14 @@ function SearchGenius() {
 // Scrape lyrics from Genius
 function GetLyrics() {
     $.get(corsProxyURL + lyricsURL, function(html) {
-        lyrics = ($(html).find('.Lyrics__Container-sc-1ynbvzw-5').html());  // 
-        lyricsEl.innerHTML = lyrics;                                        // 
-        $("#lyrics > a").removeAttr("href");                                // Remove all hrefs from Genius lyrics
+        lyrics = ($(html).find('#lyrics-root').html());
+        lyricsEl.innerHTML = lyrics;
+        // Remove unecessary elements
+        $('.LyricsHeader__Container-ejidji-1').remove();    
+        $('.RightSidebar__Container-pajcl2-0').remove();
+        $('.InreadContainer__Container-sc-19040w5-0').remove();
+        $('.Lyrics__Footer-sc-1ynbvzw-1').remove();
+        // Remove all hrefs from Genius lyrics
+        $("#lyrics > div> a").removeAttr("href");                
     });
 }
