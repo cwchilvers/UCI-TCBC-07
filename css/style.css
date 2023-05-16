@@ -1,0 +1,33 @@
+*{
+    margin:auto;
+    padding:auto;
+    font: optional;
+    box-sizing: border-box;
+}
+header{
+    font-size: 50px;
+    background-color: #ef4444;
+    text-align: center;
+}
+
+.container{
+    display: flex;
+    text-align: center;
+    background-color: #ef4444;
+}
+
+form button {
+    padding: 5px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+form input {
+    padding: 5px 20px;
+    margin: 20px;
+}
+
+.result{
+    padding: 40px;
+}
