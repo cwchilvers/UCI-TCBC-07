@@ -1,6 +1,6 @@
 // Document elements
 const element = {
-    main: document.querySelector("main"),
+    main: document.querySelector("#lyrics-container"),
     input: document.querySelector("#input"),
     submit: document.querySelector("#submit"),
     song: document.createElement("h1"), 
@@ -33,13 +33,13 @@ element.submit.addEventListener("click", function(event) {
 function SearchGenius(input) {
     fetch(genius.url + genius.search + input + "&access_token=" + genius.token)
         .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
             // Error 400
-            if (data.status === 400) {
+            if (response.status === 400) {
                 Error400();
             } else {
+            return response.json();
+        }})
+        .then(function (data) {
                 ClearContent();
 
                 // Display searching message
@@ -68,14 +68,14 @@ function SearchGenius(input) {
                 GetLyrics(lyricsURL, info);
                 }
             }
-        });
+        );
 }
 
 // Scrape lyrics from Genius
 function GetLyrics(lyricsURL, info) {
     $.get(lyricsURL, function(html) {
         // Error 400
-        if (lyricsURL.status === 400) {
+        if (html.status === 400) {
             Error400();
         } else {
         ClearContent();
