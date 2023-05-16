@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lyric Finder</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./assets/css/normalize.css" rel="stylesheet">
+    <link href="./assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <header class="text-white uppercase font-semibold">Lyrics Finder</header>
+
+    <!-- Search -->
+    <div id="search-container">
+        <div id="search-flex">
+            <form>
+                <input id="input" type="text" placeholder="Search song + artist for lyrics">
+                <button id="submit" style="background-color: whitesmoke; text: gray -500px;" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Player -->
+
+    <!-- Lyrics -->
+    <main id="lyrics"></main>
+
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./assets/js/lyric-search.js"></script>
+</body>
+</html>

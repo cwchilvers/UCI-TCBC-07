@@ -36,25 +36,23 @@ function SearchGenius(input) {
             return response.json();
         })
         .then(function (data) {
-            ClearContent();
-            
-            // Display searching message
-            element.main.appendChild(element.searching);
-            element.searching.textContent = "Searching...";
-
-            // Create empty object for song info
-            let info = {
-                song: null,
-                artist: null,
-                releaseDate: null,
-                coverArt: null,
-            } 
-            console.log(data);
-
             // Error 400
             if (data.status === 400) {
                 Error400();
             } else {
+                ClearContent();
+
+                // Display searching message
+                element.main.appendChild(element.searching);
+                element.searching.textContent = "Searching...";
+
+                // Create empty object for song info
+                let info = {
+                    song: null,
+                    artist: null,
+                    releaseDate: null,
+                    coverArt: null,
+                } 
                 // If song could not be found in Genius database
                 if (data.response.hits.length === 0) {
                     SongNotFound();
@@ -66,7 +64,7 @@ function SearchGenius(input) {
                 info.coverArt = data.response.hits[0].result.header_image_url;               // Cover Art
 
                 // URL for Genius lyrics page
-                let lyricsURL = "https://genius.com" + data.response.hits[0].result.path;
+                let lyricsURL = corsProxyURL + "https://genius.com" + data.response.hits[0].result.path;
                 GetLyrics(lyricsURL, info);
                 }
             }
@@ -75,7 +73,11 @@ function SearchGenius(input) {
 
 // Scrape lyrics from Genius
 function GetLyrics(lyricsURL, info) {
-    $.get(corsProxyURL + lyricsURL, function(html) {
+    $.get(lyricsURL, function(html) {
+        // Error 400
+        if (lyricsURL.status === 400) {
+            Error400();
+        } else {
         ClearContent();
 
         // Create elements (Create and update elements under this function so that everything loads at once)
@@ -104,7 +106,7 @@ function GetLyrics(lyricsURL, info) {
         $('.InreadContainer__Container-sc-19040w5-0').remove();
         $('.Lyrics__Footer-sc-1ynbvzw-1').remove();
         $("a").removeAttr("href");                
-    });
+    }});
 }
 
 function SongNotFound () {
