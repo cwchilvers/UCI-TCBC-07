@@ -18,6 +18,7 @@ const genius = {
     token: "0mnLuVjVhj3q71HPoO4qeXl5XHowzNHG87dc1Vr9VfLCKYy_apxIFSsGRajaCKh9",
     search: "search?q="
 }
+
 // -- CORS Proxy Server API
 const corsProxyURL = "https://api.codetabs.com/v1/proxy?quest=";    // This is to get around CORS policy error
 
