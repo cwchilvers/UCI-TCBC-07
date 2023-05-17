@@ -33,12 +33,13 @@ element.submit.addEventListener("click", function(event) {
 function SearchGenius(input) {
     fetch(genius.url + genius.search + input + "&access_token=" + genius.token)
         .then(function (response) {
-            // Error 400
-            if (response.status === 400) {
-                Error400();
-            } else {
-            return response.json();
-        }})
+            // No Errors
+            if (response.ok) {
+                return response.json();
+            }
+            // Error
+            throw ErrorMessage();
+        })
         .then(function (data) {
                 ClearContent();
 
@@ -53,6 +54,7 @@ function SearchGenius(input) {
                     releaseDate: null,
                     coverArt: null,
                 } 
+                
                 // If song could not be found in Genius database
                 if (data.response.hits.length === 0) {
                     SongNotFound();
@@ -73,40 +75,51 @@ function SearchGenius(input) {
 
 // Scrape lyrics from Genius
 function GetLyrics(lyricsURL, info) {
-    $.get(lyricsURL, function(html) {
-        // Error 400
-        if (html.status === 400) {
-            Error400();
-        } else {
-        ClearContent();
+    fetch(lyricsURL)
+        .then(function (response) {
+            // No Errors
+            if (response.ok) {
+                $.get(lyricsURL, function(html) {
+                    ClearContent();
+    
+                    // Create elements (Create and update elements under this function so that everything loads at once)
+                    element.main.appendChild(element.song);                 // Song Title
+                    element.main.appendChild(element.artist);               // Artist
+                    element.main.appendChild(element.releaseDate);          // Release Date
+                    element.main.appendChild(element.coverArt);             // Cover Art-|
+                    element.coverArt.setAttribute("id", "cover-art");       //           V      
+                    element.main.appendChild(element.lyrics);               // Lyrics----|
+                    element.lyrics.setAttribute("id", "lyrics");            //           V
+                    
+                    // Update element content
+                    element.song.textContent = info.song;                   // Song Title
+                    element.artist.textContent = info.artist;               // Artist     
+                    element.releaseDate.textContent = info.releaseDate;     // Release Date
+                    element.coverArt.setAttribute("src", info.coverArt);    // Cover Art-|
+                    element.coverArt.setAttribute("height", "300px");       //           V
+    
+                    // Retrieve HTML from lyrics page
+                    let lyrics = ($(html).find('#lyrics-root').html());
+                    element.lyrics.innerHTML = lyrics;
+    
+                    // Remove unecessary junk
+                    $('.LyricsHeader__Container-ejidji-1').remove();    
+                    $('.RightSidebar__Container-pajcl2-0').remove();
+                    $('.InreadContainer__Container-sc-19040w5-0').remove();
+                    $('.Lyrics__Footer-sc-1ynbvzw-1').remove();
+                    $("a").removeAttr("href");                
+                })
+            }            
+            // Error
+            throw ErrorMessage();
 
-        // Create elements (Create and update elements under this function so that everything loads at once)
-        element.main.appendChild(element.song);                 // Song Title
-        element.main.appendChild(element.artist);               // Artist
-        element.main.appendChild(element.releaseDate);          // Release Date
-        element.main.appendChild(element.coverArt);             // Cover Art-|
-        element.coverArt.setAttribute("id", "cover-art");       //           V      
-        element.main.appendChild(element.lyrics);               // Lyrics----|
-        element.lyrics.setAttribute("id", "lyrics");            //           V
-        
-        // Update element content
-        element.song.textContent = info.song;                   // Song Title
-        element.artist.textContent = info.artist;               // Artist     
-        element.releaseDate.textContent = info.releaseDate;     // Release Date
-        element.coverArt.setAttribute("src", info.coverArt);    // Cover Art-|
-        element.coverArt.setAttribute("height", "300px");       //           V
-
-        // Retrieve HTML from lyrics page
-        let lyrics = ($(html).find('#lyrics-root').html());
-        element.lyrics.innerHTML = lyrics;
-
-        // Remove unecessary junk
-        $('.LyricsHeader__Container-ejidji-1').remove();    
-        $('.RightSidebar__Container-pajcl2-0').remove();
-        $('.InreadContainer__Container-sc-19040w5-0').remove();
-        $('.Lyrics__Footer-sc-1ynbvzw-1').remove();
-        $("a").removeAttr("href");                
-    }});
+        })
+        .catch(() => { PossibleError(); })
+}
+    
+function ClearContent() {
+    // Erase content
+    element.main.innerHTML = "";    
 }
 
 function SongNotFound () {
@@ -117,15 +130,18 @@ function SongNotFound () {
     element.searching.textContent = "Song not found";
 }
 
-function Error400 () {
+function ErrorMessage () {
     ClearContent();
 
     // Display search error message
     element.main.appendChild(element.searching);
-    element.searching.textContent = "ERROR 400: Bad Request";
+    element.searching.textContent = "ERROR";
 }
 
-function ClearContent() {
-            // Erase content
-            element.main.innerHTML = "";    
+function PossibleError() {
+    ClearContent();
+
+    // Display search error message
+    element.main.appendChild(element.searching);
+    element.searching.textContent = "Trying to reach Genius.com..."; 
 }
