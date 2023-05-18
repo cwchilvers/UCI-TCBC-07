@@ -1,9 +1,8 @@
 *{
-    margin:auto;
-    padding:auto;
-    font: optional;
-    box-sizing: border-box;
+    padding: auto;
+    margin: auto;
 }
+
 header{
     font-size: 50px;
     background-color: #ef4444;
@@ -13,7 +12,6 @@ header{
 .container{
     display: flex;
     text-align: center;
-    background-color: #ef4444;
 }
 
 form button {
@@ -22,12 +20,17 @@ form button {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    border: 3px solid #ef4444;
 }
 form input {
     padding: 5px 20px;
     margin: 20px;
+    border: 3px solid #ef4444;
 }
 
 .result{
-    padding: 40px;
+    text-align: center;
+    margin-top: 20px;
+    position: relative;
+    display: block;
 }
