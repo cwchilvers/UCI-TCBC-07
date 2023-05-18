@@ -5,4 +5,4 @@ Lets users search for song lyrics by providing the song and artist. Lyrics are f
 ## Screenshots
 
 ## Deployed Web App
-[Simple Lyric Finder](https://cwchilvers.github.io/LyricFinder/)
+[Simple Lyric Finder](https://cwchilvers.github.io/SimpleLyricFinder/)
