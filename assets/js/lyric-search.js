@@ -22,6 +22,12 @@ const genius = {
 // -- CORS Proxy Server API
 const corsProxyURL = "https://api.codetabs.com/v1/proxy?quest=";    // This is to get around CORS policy error
 
+// Load last search (if it exists)
+if (localStorage.getItem("lastSearch") !== null) {
+    SearchGenius(JSON.parse(localStorage.getItem("lastSearch")));
+}
+
+
 // When user clicks submit button
 element.submit.addEventListener("click", function(event) {
     event.preventDefault()
@@ -61,7 +67,7 @@ function SearchGenius(input) {
                 } else {
                 // Get song info and store into object
                 info.song = data.response.hits[0].result.title;                              // Song Title
-                info.artist = "by " + data.response.hits[0].result.artist_names;             // Artist
+                info.artist = data.response.hits[0].result.artist_names;             // Artist
                 info.releaseDate = data.response.hits[0].result.release_date_for_display;    // Release Date
                 info.coverArt = data.response.hits[0].result.header_image_url;               // Cover Art
 
@@ -93,7 +99,7 @@ function GetLyrics(lyricsURL, info) {
                     
                     // Update element content
                     element.song.textContent = info.song;                   // Song Title
-                    element.artist.textContent = info.artist;               // Artist     
+                    element.artist.textContent = "by " + info.artist;       // Artist     
                     element.releaseDate.textContent = info.releaseDate;     // Release Date
                     element.coverArt.setAttribute("src", info.coverArt);    // Cover Art-|
                     element.coverArt.setAttribute("height", "300px");       //           V
@@ -107,7 +113,10 @@ function GetLyrics(lyricsURL, info) {
                     $('.RightSidebar__Container-pajcl2-0').remove();
                     $('.InreadContainer__Container-sc-19040w5-0').remove();
                     $('.Lyrics__Footer-sc-1ynbvzw-1').remove();
-                    $("a").removeAttr("href");                
+                    $("a").removeAttr("href");
+
+                    // Store recent search in local storage
+                    localStorage.setItem("lastSearch", JSON.stringify(info.song + " " + info.artist));
                 })
             }            
             // Error
