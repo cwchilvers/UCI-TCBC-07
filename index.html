@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Lyric Finder</title>
+    <link href="/SimpleLyricFinder/assets/css/normalize.css" rel="stylesheet">
+    <link href="/SimpleLyricFinder/assets/css/style.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@7.14.6/babel.min.js"></script>
+    <script type="text/babel" src="/client/src/Dashboard.js"></script>
+
+</head>
+
+<body>
+    <header class="text-white uppercase font-semibold">Simple Lyric Finder</header>
+
+    <!-- Search -->
+    <div id="root">
+    <div id="search-container">
+        <div id="search-flex">
+            <form>     
+                <input type="text" id="search-input" placeholder="Search for a song...">
+                <button type="submit" id="search-button">Search</button>
+            </form>
+        </div>
+    </div>
+</div>
+    <!-- Player -->
+
+    <!-- Lyrics -->
+    <main id="lyrics-flex">
+        <div id="lyrics-container"></div>
+    </main>
+
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/SimpleLyricFinder/assets/js/lyric-search.js"></script>
+</body>
+</html>
