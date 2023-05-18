@@ -6,6 +6,7 @@ const element = {
     song: document.createElement("h1"), 
     artist: document.createElement("h2"), 
     releaseDate: document.createElement("p"),
+    imageContainer: document.createElement("div"),
     coverArt: document.createElement("img"),
     lyrics: document.createElement("div"),
     searching: document.createElement("h3"),
@@ -66,7 +67,7 @@ function SearchGenius(input) {
                 } else {
                 // Get song info and store into object
                 info.song = data.response.hits[0].result.title;                              // Song Title
-                info.artist = data.response.hits[0].result.artist_names;             // Artist
+                info.artist = data.response.hits[0].result.artist_names;                     // Artist
                 info.releaseDate = data.response.hits[0].result.release_date_for_display;    // Release Date
                 info.coverArt = data.response.hits[0].result.header_image_url;               // Cover Art
 
@@ -88,13 +89,15 @@ function GetLyrics(lyricsURL, info) {
                     ClearContent();
     
                     // Create elements (Create and update elements under this function so that everything loads at once)
-                    element.main.appendChild(element.song);                 // Song Title
-                    element.main.appendChild(element.artist);               // Artist
-                    element.main.appendChild(element.releaseDate);          // Release Date
-                    element.main.appendChild(element.coverArt);             // Cover Art-|
-                    element.coverArt.setAttribute("id", "cover-art");       //           V      
-                    element.main.appendChild(element.lyrics);               // Lyrics----|
-                    element.lyrics.setAttribute("id", "lyrics");            //           V
+                    element.main.appendChild(element.song);                         // Song Title
+                    element.main.appendChild(element.artist);                       // Artist
+                    element.main.appendChild(element.releaseDate);                  // Release Date
+                    element.main.appendChild(element.imageContainer);               // Cover Art-|
+                    element.imageContainer.setAttribute("id", "image-container");   //           |                     
+                    element.imageContainer.appendChild(element.coverArt);           //           |
+                    element.coverArt.setAttribute("id", "cover-art");               //           V      
+                    element.main.appendChild(element.lyrics);                       // Lyrics----|
+                    element.lyrics.setAttribute("id", "lyrics");                    //           V
                     
                     // Update element content
                     element.song.textContent = info.song;                   // Song Title

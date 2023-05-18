@@ -15,18 +15,18 @@ header {
     justify-content: center;
 }
 
+#input {
+    padding: 5px 20px;
+    margin: 20px;
+    width: 300px;
+}
+
 #submit {
     padding: 5px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-}
-
-#input {
-    padding: 5px 20px;
-    margin: 20px;
-    width: 300px;
 }
 
 #lyrics-flex {
@@ -60,14 +60,40 @@ main h3 {
     font-size: 40px;
 }
 
+#image-container {
+    display: flex; align-items: center; justify-content: center;
+    width: 100%;
+}
+
 #cover-art {
     flex-basis: 300px;
     height: 300px; width: 300px;
     border-radius: 15px;
     box-shadow: 1px 1px 5px rgba(7,8,9,0.5);
-    margin-left: 250px;
+    margin: 20px 0 20px 0;
 }
 
 #lyrics {
     font-size: 25px;
+}
+
+/* Mobile devices */
+@media screen and (max-width: 1080px) {
+    header {
+        font-size: 30px;
+    }
+
+    #input {
+        width: 200px;
+    }
+
+    #lyrics-container {
+        width: 100%;
+        padding: 20px 5% 100px 5%;
+    }
+
+    main h1 {
+        font-weight: bold;
+        font-size: 40px;
+    }
 }
