@@ -27,7 +27,6 @@ if (localStorage.getItem("lastSearch") !== null) {
     SearchGenius(JSON.parse(localStorage.getItem("lastSearch")));
 }
 
-
 // When user clicks submit button
 element.submit.addEventListener("click", function(event) {
     event.preventDefault()
@@ -121,13 +120,12 @@ function GetLyrics(lyricsURL, info) {
             }            
             // Error
             throw ErrorMessage();
-
         })
-        .catch(() => { PossibleError(); })
+        .catch(() => { SearchIssue(); })
 }
     
 function ClearContent() {
-    // Erase content
+    // Clear main content
     element.main.innerHTML = "";    
 }
 
@@ -147,7 +145,7 @@ function ErrorMessage () {
     element.searching.textContent = "ERROR";
 }
 
-function PossibleError() {
+function SearchIssue() {
     ClearContent();
 
     // Display search error message
