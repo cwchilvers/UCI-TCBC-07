@@ -34,7 +34,7 @@ element.submit.addEventListener("click", function(event) {
     SearchGenius(input);
   });
 
-// Get data from Genius API
+// Search and retrieve data from Genius API
 function SearchGenius(input) {
     fetch(genius.url + genius.search + input + "&access_token=" + genius.token)
         .then(function (response) {
@@ -78,7 +78,7 @@ function SearchGenius(input) {
         );
 }
 
-// Scrape lyrics from Genius
+// Scrape lyrics from Genius and display on page with song information
 function GetLyrics(lyricsURL, info) {
     fetch(lyricsURL)
         .then(function (response) {
