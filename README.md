@@ -13,7 +13,7 @@ There were issues integrating Spotify to create player for a user to sing along 
 
 ## APIs Used
 - Genius API
-- CodeTab CORS Proxy API
+- CodeTabs CORS Proxy API
 - Spotify API (incomplete)
 
 ## Screenshots
