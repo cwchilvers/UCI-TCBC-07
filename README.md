@@ -9,7 +9,10 @@ Lets users search for song lyrics by providing the song and artist. Lyrics are f
 \
 Styling was created with both vanilla CSS and Tailwind CSS framework.\
 \
-There were issues integrating Spotify to create player for a user to sing along to a song, but our work regarding Spotify API can be found in the spotify-api branch.
+There were issues integrating Spotify to create player for a user to sing along to a song, but **our work regarding Spotify API can be found in the spotify-api branch.**
+
+## APIs Used
+Genius API, CodeTab CORS Proxy API, Spotify API (incomplete)
 
 ## Screenshots
 
