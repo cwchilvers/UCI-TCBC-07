@@ -21,9 +21,9 @@ There were issues integrating Spotify to create player for a user to sing along 
 ![Screenshot 2023-05-18 201054](https://github.com/cwchilvers/SimpleLyricFinder/assets/59628271/f913f327-4985-48f6-9c58-a63c870a5c65)
 
 ## Roles
-- UI and Tailwind CSS: Dung Tran
-- Genius API, CodeTabs CORS Proxy API, Lyric Scraper: Chandler Chilvers
-- Spotify Web API: Alvaro Vazquez
+- **UI and Tailwind CSS:** Dung Tran
+- **Genius API, CodeTabs CORS Proxy API, Lyric Scraper:** Chandler Chilvers
+- **Spotify Web API:** Alvaro Vazquez
 
 ## Deployed Web App
 [Simple Lyric Finder](https://cwchilvers.github.io/SimpleLyricFinder/)
