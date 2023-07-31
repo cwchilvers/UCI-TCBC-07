@@ -29,8 +29,8 @@ To use this web application, either access the web app [here](https://example.co
 
 ## Screenshots
 <p align="center">
-    <img src="https://github.com/cwchilvers/SimpleLyricFinder/assets/59628271/6615a2ee-0216-482e-82c1-0fc651dc5c48" style="border-radius:10px">
-    <img src="https://github.com/cwchilvers/SimpleLyricFinder/assets/59628271/f913f327-4985-48f6-9c58-a63c870a5c65" style="border-radius:10px">
+    <img src="https://github.com/cwchilvers/SimpleLyricFinder/assets/59628271/6615a2ee-0216-482e-82c1-0fc651dc5c48">
+    <img src="https://github.com/cwchilvers/SimpleLyricFinder/assets/59628271/f913f327-4985-48f6-9c58-a63c870a5c65">
 </p>
 
 ## Technologies Used
