@@ -57,3 +57,11 @@ This project is licensed under the MIT License. See the [MIT License](https://op
     <a href="mailto:cwchilvers@gmail.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail"></a>
     <a href="https://github.com/cwchilvers"><img src="https://img.shields.io/badge/GitHub-181717.svg?style=for-the-badge&logo=GitHub&logoColor=white" alt="GitHub"></a>
 </p>
+<h4 align="center">Dung Tran:</h4>
+<p align="center">
+    <a href="https://github.com/dungt13"><img src="https://img.shields.io/badge/GitHub-181717.svg?style=for-the-badge&logo=GitHub&logoColor=white" alt="GitHub"></a>
+</p>
+<h4 align="center">Alvaro Vazquez:</h4>
+<p align="center">
+    <a href="https://github.com/Avazquez736"><img src="https://img.shields.io/badge/GitHub-181717.svg?style=for-the-badge&logo=GitHub&logoColor=white" alt="GitHub"></a>
+</p>
