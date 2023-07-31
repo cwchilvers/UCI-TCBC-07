@@ -3,14 +3,14 @@ const element = {
     main: document.querySelector("#lyrics-container"),
     input: document.querySelector("#input"),
     submit: document.querySelector("#submit"),
-    song: document.createElement("h1"), 
-    artist: document.createElement("h2"), 
+    song: document.createElement("h1"),
+    artist: document.createElement("h2"),
     releaseDate: document.createElement("p"),
     imageContainer: document.createElement("div"),
     coverArt: document.createElement("img"),
     lyrics: document.createElement("div"),
     searching: document.createElement("h3"),
-}
+};
 
 // APIs
 // -- Genius API
@@ -33,7 +33,7 @@ element.submit.addEventListener("click", function(event) {
     event.preventDefault()
     let input = element.input.value;
     SearchGenius(input);
-  });
+});
 
 // Search and retrieve data from Genius API
 function SearchGenius(input) {
@@ -110,7 +110,7 @@ function GetLyrics(lyricsURL, info) {
                     let lyrics = ($(html).find('#lyrics-root').html());
                     element.lyrics.innerHTML = lyrics;
     
-                    // Remove unecessary junk
+                    // Remove unnecessary junk
                     $('.LyricsHeader__Container-ejidji-1').remove();    
                     $('.RightSidebar__Container-pajcl2-0').remove();
                     $('.InreadContainer__Container-sc-19040w5-0').remove();
