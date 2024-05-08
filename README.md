@@ -3,6 +3,7 @@
 </h1>
 
 <p align="center">
+    <img src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000&style=for-the-badge" alt="JavaScript">   
     <img src="https://img.shields.io/badge/jQuery-0769AD.svg?style=for-the-badge&logo=jQuery&logoColor=white" alt="jQuery">
     <img src="https://img.shields.io/badge/Tailwind%20CSS-06B6D4.svg?style=for-the-badge&logo=Tailwind-CSS&logoColor=white" alt="Tailwind CSS">
     <img src="https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge" alt="MIT License">
@@ -16,8 +17,8 @@
 3. [Screenshots](#screenshots)
 4. [Technologies Used](#technologies-used)
 5. [Credits](#credits)
-6. [License](#license)
-7. [Contact Information](#contact-information)
+6. [Contact Information](#contact-information)
+7. [License](#license)
 
 ## Description
 Lets users search for song lyrics by providing the song and artist. Lyrics are found by searching the song & artist in Genius's database with the use of Genius's API. Turns out that Genius's API does not provide lyrics, but rather the path to the web page for the lyrics of that song. In order to get the lyrics, the lyrics are scraped straight from the web page using jQuery's .get() method with the additional help of a CORS proxy to get around the issue of being blocked by CORS policy. Styling was created with a combination of both vanilla CSS and Tailwind CSS framework.<br>
@@ -34,22 +35,13 @@ To use this web application, either access the web app [here](https://example.co
 </p>
 
 ## Technologies Used
-- HTML
-- CSS
 - JavaScript
-- jQuery
-- Tailwind CSS
-- Genius API
-- CodeTabs CORS Proxy
-
-## Credits
 - [jQuery](https://jquery.com/)
 - [Tailwind CSS](https://tailwindcss.com/)
+
+## Credits
 - [Genius API](https://docs.genius.com/)
 - [CodeTabs CORS Proxy](https://codetabs.com/cors-proxy/cors-proxy.html)
-
-## License
-This project is licensed under the MIT License. See the [MIT License](https://opensource.org/licenses/mit/) page for details.
 
 ## Contact Information
 <h4 align="center">Chandler Chilvers:</h4>
@@ -65,3 +57,6 @@ This project is licensed under the MIT License. See the [MIT License](https://op
 <p align="center">
     <a href="https://github.com/Avazquez736"><img src="https://img.shields.io/badge/GitHub-181717.svg?style=for-the-badge&logo=GitHub&logoColor=white" alt="GitHub"></a>
 </p>
+
+## License
+This project is licensed under the MIT License. See the [MIT License](https://opensource.org/licenses/mit/) page for details.
